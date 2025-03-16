@@ -1,6 +1,7 @@
 # Running-AlphaFold3
 Example .sh file:
 
+```
 #!/bin/bash
 #SBATCH --job-name=42r.3c_premsa
 #SBATCH --account=beagle3-exusers
@@ -28,3 +29,4 @@ singularity exec --nv \
   --run_inference=True \
   --jackhmmer_n_cpu=8 \
   --nhmmer_n_cpu=8
+```
