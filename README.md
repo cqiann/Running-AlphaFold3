@@ -1,5 +1,5 @@
 # Running-AlphaFold3
-Create the following .sh file:
+Example .sh file:
 
 ```
 #!/bin/bash
