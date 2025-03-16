@@ -1,9 +1,9 @@
 # Running-AlphaFold3
-Example .sh file:
+Create the following .sh file, replace $JOBNAME, $USERNAME, $PATH_TO_INPUT_FILE with the job name you want, your Midway username, and the path to your AlphaFold3 input file :
 
 ```
 #!/bin/bash
-#SBATCH --job-name=REPLACE WITH JOB NAME
+#SBATCH --job-name=$JOBNAME
 #SBATCH --account=beagle3-exusers
 #SBATCH --partition=beagle3
 #SBATCH --time=10:00:00
@@ -13,16 +13,16 @@ Example .sh file:
 
 module load singularity
 
-BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/USERNAME,/scratch/beagle3/christineqian"
+BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/$USERNAME,/scratch/beagle3/$USERNAME"
 
 singularity exec --nv \
   -B "$BIND_PATHS" \
   --env CUDA_VISIBLE_DEVICES=0,1,NVIDIA_VISIBLE_DEVICES=0,1 \
   /software/alphafold3.0-el8-x86_64/alphafold3.sif \
   python /app/alphafold/run_alphafold.py \
-  --json_path=/scratch/beagle3/christineqian/alphafold3/42r.3c_premsa.json \
+  --json_path=$PATH_TO_YOUR_INPUT_FILE \
   --db_dir=/software/alphafold3.0-el8-x86_64/databases \
-  --output_dir=/scratch/beagle3/christineqian/alphafold3_output \
+  --output_dir=/scratch/beagle3/$USERNAME/alphafold3_output \
   --model_dir=/software/alphafold3.0-el8-x86_64/params \
   --flash_attention_implementation=triton \
   --run_data_pipeline=True \
