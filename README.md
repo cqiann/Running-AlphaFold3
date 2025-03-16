@@ -1,9 +1,9 @@
 # Running-AlphaFold3
-Example .sh file:
+Create the following .sh file:
 
 ```
 #!/bin/bash
-#SBATCH --job-name=42r.3c_premsa
+#SBATCH --job-name=REPLACE WITH JOB NAME
 #SBATCH --account=beagle3-exusers
 #SBATCH --partition=beagle3
 #SBATCH --time=10:00:00
@@ -13,7 +13,7 @@ Example .sh file:
 
 module load singularity
 
-BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/christineqian,/scratch/beagle3/christineqian"
+BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/USERNAME,/scratch/beagle3/christineqian"
 
 singularity exec --nv \
   -B "$BIND_PATHS" \
