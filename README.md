@@ -74,4 +74,23 @@ The fields specify the following:
 * unpairedMsaPath: str: An optional path to a file that contains the multiple sequence alignment for this chain instead of providing it inline using the unpairedMsa field. The path can be either absolute, or relative to the input JSON path. The file must be in the A3M format, and could be either plain text, or compressed using gzip, xz, or zstd.
 * pairedMsa: str: The AlphaFold3 Documentation recommend not using this optional field and using the unpairedMsa for the purposes of pairing.
 * pairedMsaPath: str: An optional path to a file that contains the multiple sequence alignment for this chain instead of providing it inline using the pairedMsa field. The path can be either absolute, or relative to the input JSON path. The file must be in the A3M format, and could be either plain text, or compressed using gzip, xz, or zstd.
-* templates: list[Template]: An optional list of structural templates. 
+* templates: list[Template]: An optional list of structural templates.
+
+An example JSON file for predicting a 42-residue ABeta dimer with MSA and with template:
+```
+{
+  "name": "42r.2c_notemp",
+  "sequences": [
+    {
+      "protein": {
+        "id":["A", "B"],
+        "sequence": "DAEFRHDSGYEVHHQKLVFFAEDVGSNKGAIIGLMVGGVVIA",
+      }
+    }
+  ],
+  "modelSeeds": [1, 2, 3],
+  "dialect": "alphafold3",
+  "version": 2
+}
+```
+
