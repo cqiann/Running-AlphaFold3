@@ -1,4 +1,4 @@
-# Running-AlphaFold3
+# Running AlphaFold3
 Create the following .sh file, replace $JOBNAME, $USERNAME, $PATH_TO_INPUT_FILE with the job name you want, your Midway username, and the path to your AlphaFold3 input file :
 
 ```
