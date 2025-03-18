@@ -122,4 +122,7 @@ with template and MSA:
 ```
 For `modelSeeds: list[int]:` If you provide n random seeds, you will get n predicted structures, each with the respective random seed. You must provide at least one random seed. So in the example JSON file `modelSeeds: [1, 2, 3]` gives three predicted structures.
 
+The output of AlphaFold3 will be named after the job name you provide, so make sure to change the `"name"` field for each new job to avoid risks of overwriting.
+
 ## Output
+The output of the predicted structures will be in mmCIF format. The top-ranking prediction mmCIF is `<job_name>_model.cif` 
