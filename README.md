@@ -1,4 +1,6 @@
 # Running AlphaFold3
+
+##Input
 Create the following .sh file, replace any $ as appropriate (Except for $BIND_PATHS, keep that as $BIND_PATHS). 
 
 When defining `BIND_PATHS`, make sure to include the path that contains your AlphaFold3 input file. For example, if I have the input file in `/scratch/beagle3/christineqian/$some_sub_directory`, I would include the higher level directory, ie. `/scratch/beagle3/christineqian/` in the BIND_PATHS so AlphaFold3 can have access to my input file.
@@ -119,3 +121,5 @@ with template and MSA:
 }
 ```
 For `modelSeeds: list[int]:` If you provide n random seeds, you will get n predicted structures, each with the respective random seed. You must provide at least one random seed. So in the example JSON file `modelSeeds: [1, 2, 3]` gives three predicted structures.
+
+##Output
