@@ -1,5 +1,6 @@
 # Running AlphaFold3
-Create the following .sh file, replace $JOBNAME, $USERNAME, $PATH_TO_INPUT_FILE with the job name you want, your Midway username, and the path to your AlphaFold3 input file :
+Create the following .sh file, replace $JOBNAME, $USERNAME, $PATH_TO_INPUT_FILE with the job name you want, your Midway username, and the path to your AlphaFold3 input file. 
+When defining $BIND_PATHS
 
 ```
 #!/bin/bash
@@ -13,7 +14,7 @@ Create the following .sh file, replace $JOBNAME, $USERNAME, $PATH_TO_INPUT_FILE 
 
 module load singularity
 
-BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/$USERNAME,/scratch/beagle3/$USERNAME"
+BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/$USERNAME,/$PATH_THAT_CONTAINS_YOUR_INPUT_FILE"
 
 singularity exec --nv \
   -B "$BIND_PATHS" \
