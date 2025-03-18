@@ -1,10 +1,10 @@
 # Running AlphaFold3
-Create the following .sh file, replace $JOBNAME, $USERNAME, $PATH_TO_INPUT_FILE with the job name you want, your Midway username, and the path to your AlphaFold3 input file. 
-When defining `BIND_PATHS`, make sure to include a
+Create the following .sh file, replace $USERNAME, $PATH_TO_INPUT_FILE with your Midway username and the path to your AlphaFold3 input file. 
+When defining `BIND_PATHS`, make sure to include the path that contains your AlphaFold3 input file. For example, if I have the input file in `/scratch/beagle3/christineqian/$some_sub_directory`, I would include `/scratch/beagle3/christineqian/` in the BIND_PATHS so AlphaFold3 can have access to my input file.
 
 ```
 #!/bin/bash
-#SBATCH --job-name=$JOBNAME
+#SBATCH --job-name=alphafold3
 #SBATCH --account=beagle3-exusers
 #SBATCH --partition=beagle3
 #SBATCH --time=10:00:00
