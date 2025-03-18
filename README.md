@@ -48,6 +48,7 @@ The input file should be a JSON file with the following top-level structure:
   "dialect": "alphafold3",  # Required
   "version": 2  # Required
 }
+```
 
 Here is an example input JSON file for predicting a complex containing:
 >MHC|chain A
