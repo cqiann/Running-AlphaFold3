@@ -1,5 +1,6 @@
 # Running AlphaFold3
-Create the following .sh file, replace $USERNAME, $PATH_TO_INPUT_FILE with your Midway username and the path to your AlphaFold3 input file. 
+Create the following .sh file, replace any $ as appropriate (Except for $BIND_PATHS. 
+
 When defining `BIND_PATHS`, make sure to include the path that contains your AlphaFold3 input file. For example, if I have the input file in `/scratch/beagle3/christineqian/$some_sub_directory`, I would include `/scratch/beagle3/christineqian/` in the BIND_PATHS so AlphaFold3 can have access to my input file.
 
 ```
@@ -14,7 +15,7 @@ When defining `BIND_PATHS`, make sure to include the path that contains your Alp
 
 module load singularity
 
-BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/$USERNAME,/$PATH_THAT_CONTAINS_YOUR_INPUT_FILE"
+BIND_PATHS="/software/alphafold3.0-el8-x86_64/databases,/software/alphafold3.0-el8-x86_64/params,/software/alphafold3.0-el8-x86_64/singularity,/home/$YOUR_MIDWAY_USERNAME,/$PATH_TO_A_HIGHER_LEVEL_DIRECTORY_THAT_CONTAINS_THE_INPUT_FILE"
 
 singularity exec --nv \
   -B "$BIND_PATHS" \
