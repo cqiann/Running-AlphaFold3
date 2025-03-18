@@ -3,6 +3,8 @@ Create the following .sh file, replace any $ as appropriate (Except for $BIND_PA
 
 When defining `BIND_PATHS`, make sure to include the path that contains your AlphaFold3 input file. For example, if I have the input file in `/scratch/beagle3/christineqian/$some_sub_directory`, I would include the higher level directory, ie. `/scratch/beagle3/christineqian/` in the BIND_PATHS so AlphaFold3 can have access to my input file.
 
+`--json_path` is where you would provide the path of your input file, which will be in JSON format. Say if I had an input file named `42r.1c.json` in `/scratch/beagle3/christineqian/alphafold3/`, then I would specify the field as: `--json_path=/scratch/beagle3/christineqian/alphafold3/42r.1c.json`
+
 ```
 #!/bin/bash
 #SBATCH --job-name=alphafold3
