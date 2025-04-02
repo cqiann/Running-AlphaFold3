@@ -7,11 +7,13 @@ When defining `BIND_PATHS`, make sure to include the path that contains your Alp
 
 `--json_path` is where you would provide the path of your input file, which will be in JSON format. Say if I had an input file named `42r.1c.json` in `/scratch/beagle3/christineqian/alphafold3/`, then I would specify the field as: `--json_path=/scratch/beagle3/christineqian/alphafold3/42r.1c.json`
 
+If you run into an error with `#SBATCH --account=scmeredi`, try `#SBATCH --account=pi-haddadian` instead.
+
 ```
 #!/bin/bash
 #SBATCH --job-name=alphafold3
-#SBATCH --account=beagle3-exusers
-#SBATCH --partition=beagle3
+#SBATCH --account=scmeredi
+#SBATCH --partition=caslake
 #SBATCH --time=10:00:00
 #SBATCH --cpus-per-task=16
 #SBATCH --gres=gpu:2
@@ -28,7 +30,7 @@ singularity exec --nv \
   python /app/alphafold/run_alphafold.py \
   --json_path=$PATH_TO_YOUR_INPUT_FILE \
   --db_dir=/software/alphafold3.0-el8-x86_64/databases \
-  --output_dir=/scratch/beagle3/$USERNAME/alphafold3_output \
+  --output_dir=/scratch/midway3/scmeredi/alphafold3_output \
   --model_dir=/software/alphafold3.0-el8-x86_64/params \
   --flash_attention_implementation=triton \
   --run_data_pipeline=True \
